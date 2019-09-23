@@ -22,14 +22,14 @@ void updatesegmenttree(int *tree,int* lazy,int low,int high,int startr,int endr,
     {
         return;
     }
-    if(lazy[currpos]!=0)
+    if(lazy[currpos]!=0)//FIRSTLY WE HAVE TO CHECK LAZY TREE THAT IF IT HAS SOME VALUE INITIALLY TO ADD
     {
-        tree[currpos]+=lazy[currpos];
+        tree[currpos]+=lazy[currpos];//ADDING TO TREE
         if(low!=high){
-            lazy[2*currpos]+=lazy[currpos];
+            lazy[2*currpos]+=lazy[currpos];//PASSING THE VALUE TO THE CHILD NODES
             lazy[2*currpos+1]+=lazy[currpos];
         }
-        lazy[currpos]=0;
+        lazy[currpos]=0;//MAKING THE CURRENT INDEX AS ZERO AS THE VALUE IS USED NOW
     }
     //NO OVERLAP
     if(startr>high || endr<low)
@@ -39,9 +39,9 @@ void updatesegmenttree(int *tree,int* lazy,int low,int high,int startr,int endr,
     //COMPLETE
     if(startr<=low && high<=endr)
     {
-        tree[currpos]+=inc;
+        tree[currpos]+=inc;//THIS IS FOR THE CURRENT VALUE TO BE INCREASED
         if(low!=high){
-            lazy[2*currpos]+=inc;
+            lazy[2*currpos]+=inc;//ADD VALUE TO THE CHILD NODES THAT TO BE USED NEXT TIME
             lazy[2*currpos+1]+=inc;
         }
         return ;
