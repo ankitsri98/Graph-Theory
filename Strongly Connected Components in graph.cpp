@@ -51,7 +51,7 @@ unordered_set< unordered_set<int >*>* getssc(vector<int >* edges,vector<int >* e
         if(visited.count(element)!=0)
             continue;
         unordered_set<int>* component=new unordered_set<int>();//START GATHERING COMPONENTS
-        dfs2(edges,element, component,visited);
+        dfs2(edgest,element, component,visited);
         output->insert(component);
     }
     return output;
