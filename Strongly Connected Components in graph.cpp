@@ -1,3 +1,5 @@
+#to REFER PASS BY REFERENCE AND BY POINTER USE LINK
+#https://www.geeksforgeeks.org/passing-by-pointer-vs-passing-by-reference-in-c/
 #THIS IS KOSARAJU ALGORITHM
 
 #include<bits/stdc++.h>
