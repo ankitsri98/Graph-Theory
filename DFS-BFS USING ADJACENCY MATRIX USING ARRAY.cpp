@@ -2,7 +2,7 @@
 using namespace std;
 #define ll long long
 
-void print(int** edges,int n,int sv,bool* visited)
+void print(int** edges,int n,int sv,bool* visited)// DFS
 {
     cout<<sv<<endl;
     visited[sv]=true;
@@ -21,7 +21,7 @@ void print(int** edges,int n,int sv,bool* visited)
     }
 }
 
-void printbfs(int** edges,int n,int sv)
+void printbfs(int** edges,int n,int sv)// BFS
 {
     queue<int > pendingvertices;
     bool* visited=new bool[n];
