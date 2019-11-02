@@ -1,3 +1,7 @@
+//NOTE:-  As the unordered_set container does not allows to store duplicate elements so COUNT() function is generally used to check 
+//if an element is present in the container or not. The function returns 1 if the element is present in the container 
+//otherwise it returns 0.
+
 #include<bits/stdc++.h>
 using namespace std;
 #define  ll long long int
