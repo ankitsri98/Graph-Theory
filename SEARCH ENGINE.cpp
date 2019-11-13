@@ -72,4 +72,5 @@ int main()
         cout<<searchbest(pre,root)<<endl;
     }
     return 0;
+    
 }
