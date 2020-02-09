@@ -24,23 +24,23 @@ node* buildtree(){
     
     node * root=new node(d);
     //root->left= as i am storing values
-    //values will be stored at the time of returning 
     root->left=buildtree();//left subtree
     root->right=buildtree();//right subtree
-    cout<<d<<" ";
+ 
     return root;
 }
 
 void printtree(node* root)
 {
-    if(root=NULL){
+    if(root==NULL){
         return;
     }
     cout<<root->data<<" ";
     printtree(root->left);
     printtree(root->right);
 }
-int main() {
+int main() 
+{
 	node* root=buildtree();
 	printtree(root);
     
