@@ -1,6 +1,9 @@
 /*
 
-You have an array containing n elements initially all 0. You need to do a number of update operations on it. In each update you specify l, r and val which are the starting index, ending index and value to be added. After each update, you add the 'val' to all elements from index l to r. After 'u' updates are over, there will be q queries each containing an index for which you have to print the element at that index.
+You have an array containing n elements initially all 0. 
+You need to do a number of update operations on it. In each update you specify l, r and val which are the
+starting index, ending index and value to be added. After each update, you add the 'val' to all elements from index
+l to r. After 'u' updates are over, there will be q queries each containing an index for which you have to print the element at that index.
 
 Input
 First line consists of t, the number of test cases. (1 <= t <= 10)
