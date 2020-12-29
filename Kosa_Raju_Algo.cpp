@@ -105,6 +105,7 @@ void solve(){
     	if(vis[ord.top()]==0){
     		dfs2(ord.top(),d);
     		if(d.size()==1 && d[0]!=adj[d[0]][0]){//checking for self-loop
+			//but if graph does not contain self loops then it will give runtime error
     			continue;
     		}
     		else{
