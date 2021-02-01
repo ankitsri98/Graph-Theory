@@ -16,12 +16,13 @@ ll g(int n,vector<ll > &v ,ll pos=0,ll prev=0,string s=""){
     }
     if(pos==n){
         //cout<<s<<endl;
-        return 1;
+        return 1;//1 return karre hain kyuki hum n digit number tabhi bana paige jab poori cond' satisfied ho
+	    //yaani  saare adjacent digits diffe. <=2 ho
     }
     ll tot=0;
     for(int i=0;i<v.size();i++){
         if(prev==0 || abs(prev-v[i])<=2){
-            tot+=g(n,v,pos+1,v[i],s+to_string(v[i]));
+            tot+=g(n,v,pos+1,v[i],s+to_string(v[i]));// mai function call hi tab karra hoon jab cond' satisfied agar nhi hai toh leave it
         }
     }
     return  dp[pos][prev]=tot;
