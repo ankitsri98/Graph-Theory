@@ -25,7 +25,8 @@ node* build_tree(node* root,int s,int e,int *arr){
     root->left=build_tree(root->left,s,mid-1,arr);
     root->right=build_tree(root->right,mid+1,e,arr);
     return root; 
-    }
+}
+void pre_order(node* root){
     cout<<root->data<<" ";
     pre_order(root->left);
     pre_order(root->right);
@@ -134,13 +135,45 @@ node* LCA(node* root, int a,int b){
         return (x!=NULL)? x:y;
     }
 }
+//FINDING LARGEST BST IN A BINARY TREE
+class bst{
+public:
+    bool b;
+    int s,l,r;
+};
+bst func(node* root){
+    bst a;
+    
+    if(root==NULL){
+        a.b=true;a.s=0;a.l=INT_MAX;a.r=INT_MIN;
+        return a;
+    }
+    if(root->left==NULL && root->right==NULL){
+        a.b=true;a.s=1;a.l=root->data;a.r=root->data;
+        return a;
+    }
+    
+    bst x=func(root->left);
+    bst y=func(root->right);
+    //cout<<root->data<<endl;
+    if(y.b && x.b && x.r<root->data && y.l>root->data){
+        a.b=true;a.s=x.s+y.s+1;a.l=min(x.l,min(root->data,y.l));a.r=max(y.r,max(root->data,x.r));
+        return a;
+    }
+    else{
+    	a.b=false;a.s=max(x.s,y.s);a.l=min(x.l,min(root->data,y.l));a.r=max(y.r,max(root->data,x.r));
+    	return a;
+    }
+}
 int main() {
     node* head=NULL;
-    int arr[]={1,2,3,4,5,6,7,8,9};
-    node* root=build_tree(head,0,8,arr);
+    int arr[]={1,2,3,4,5,6,7};
+    node* root=build_tree(head,0,6,arr);
     //pre_order(root);
     //cout<<endl;
     level_wise(root);
+    bst ans=func(root);
+    cout<<ans.s<<"   "<<ans.b<<" "<<ans.l<<" "<<ans.r<<endl;
     //ppair xx=dia(root);
     //cout<<xx.d<<endl;
     //cout<<check_bst(root,INT_MIN,INT_MAX)<<endl;
@@ -150,7 +183,7 @@ int main() {
         cout<<i.second<<" ";
     }
     cout<<endl;*/
-    vertical_traversal(root,0);
+    /*vertical_traversal(root,0);
     for(auto i : mx){
         for(auto j : i.second){
             cout<<j<<" ";
@@ -158,7 +191,7 @@ int main() {
         cout<<endl;
     }
     node* l=LCA(root,1,6);
-    cout<<"LCA IS: "<<l->data<<endl;
+    cout<<"LCA IS: "<<l->data<<endl;*/
     //level_wise(root);
 
 }
